@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update]
+ before_action :set_event, only: [:show, :edit, :update]
  before_action :authenticate_user!, except: [:show]
 
  def index
@@ -36,7 +36,7 @@ class EventsController < ApplicationController
 
  private
    def set_event
-     @event = event.find(params[:id])
+     @event = Event.find(params[:id])
    end
 
    def event_params
