@@ -11,4 +11,5 @@ RSpec.describe Profile, type: :model do
       expect(Profile.order_by_initial).to match_array [profile1, profile2, profile3]
     end
   end
+
 end

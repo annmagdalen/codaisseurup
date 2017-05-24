@@ -58,17 +58,4 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  describe "association with event" do
-    let(:user) {create :user}
-    let!(:event) {create :event, user: user}
-
-    it "has many events" do
-      event1=user.events.new
-      event2=user.events.new
-
-      expect(user.events).to include(event1)
-      expect(user.events).to include(event2)
-    end
-  end
-
 end
