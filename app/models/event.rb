@@ -2,9 +2,9 @@ class Event < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :categories
 
-  validates :name, :start_at, presence:true
+  validates :name, :start_at, presence:false
   validates :description, presence:true, length:{maximum:500}
-  validates :ends_at, presence:true
+  validates :ends_at, presence:false
 
   def bargain?
     price < 30
