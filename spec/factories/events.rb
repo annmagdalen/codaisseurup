@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :event do
-    name            "Quiz"
+    name            {Faker::Name.name}
     description     {Faker::Lorem.sentence(10)}
-    location        "Amsterdam"
+    location        {Faker::Address.city}
     price           {Faker::Commerce.price}
-    capacity        100
-    includes_food   false
-    includes_drinks true
+    capacity        {Faker::Number.number(2)}
+    includes_food   {Faker::Boolean.boolean(0.2)}
+    includes_drinks {Faker::Boolean.boolean}
     start_at        Time.now
     ends_at         Time.now
     user            {build(:user)}
