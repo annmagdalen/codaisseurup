@@ -7,8 +7,8 @@ FactoryGirl.define do
     capacity        100
     includes_food   false
     includes_drinks true
-    start_at        {Faker::Datetime.datetime}
-    ends_at         {Faker::Datetime.datetime}
+    start_at        {Faker::DateTime.backward}
+    ends_at         {Faker::DateTime.backward}
     user            {build(:user)}
 
     trait :active do
