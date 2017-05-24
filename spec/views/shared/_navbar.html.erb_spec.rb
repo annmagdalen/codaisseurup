@@ -9,6 +9,7 @@ describe "shared/_navbar.html.erb" do
     it "renders email" do
       render
       expect(rendered).to have_content(user.email)
+      expect(rendered).not_to have_content("Log In")
     end
   end
 
@@ -21,5 +22,13 @@ describe "shared/_navbar.html.erb" do
       expect(rendered).to have_content profile.first_name
       expect(rendered).to have_content profile.last_name
     end
+  end
+end
+
+describe "shared/_navbar.html.erb" do
+  it "renders log in and sign up when not signed in" do
+    render
+    expect(rendered).to have_content("Log In")
+    expect(rendered).to have_content("Sign Up")
   end
 end
