@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :categories
+  has_many :registrations
+  has_many :guests, through: :registrations, source: :user
 
   validates :name, :start_at, presence:false
   validates :description, presence:true, length:{maximum:500}
