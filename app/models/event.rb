@@ -6,9 +6,11 @@ class Event < ApplicationRecord
 
   has_many :guests, through: :registrations, source: :user
 
-  validates :name, :start_at, presence:false
+  has_many :photos
+
+  validates :name, :start_at, presence:true
   validates :description, presence:true, length:{maximum:500}
-  validates :ends_at, presence:false
+  validates :ends_at, presence:true
 
   # def available?
   #   total_guests = 0
