@@ -6,4 +6,5 @@ class Registration < ApplicationRecord
     self.price= event.price * guest_count
   end
 
+
 end

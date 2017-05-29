@@ -12,6 +12,7 @@ class RegistrationsController < ApplicationController
    else
      redirect_to @registration.event, notice: "Sorry, the event is full!"
    end
+
  end
 
  private
