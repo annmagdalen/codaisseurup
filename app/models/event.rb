@@ -1,10 +1,20 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :categories
+  has_many :registrations, dependent: :destroy
+  has_many :guests, through: :registrations, source: :user
 
   validates :name, :start_at, presence:false
   validates :description, presence:true, length:{maximum:500}
   validates :ends_at, presence:false
+
+  # def available?
+  #   total_guests = 0
+  #   registrations.each do |registration|
+  #     total_guests += registration.guest_count
+  #   end
+  #   capacity > total_guests
+  # end
 
   def bargain?
     price < 30
